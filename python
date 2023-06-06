@@ -1,0 +1,77 @@
+import re
+import requests
+from bs4 import BeautifulSoup
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import re
+
+#LINK DA PLANILHA: https://docs.google.com/spreadsheets/d/1BoyTvu4oeMXiiBQw2l9rm2Ulh04yz1fMl11ao3n02rk/edit#gid=0
+#Deve ser feito um link por vez, ele adicionará na planilha os dados solicitados(Primeira Coluna - NOME, Segunda Coluna - PRECO, Terceira Coluna - DESCRIÇÃO)
+# William, aqui criei a def para fazer o scraping do mercado livre
+def scrape_mercado_livre(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    #Para extrair o nome:
+    nome_elemento = soup.select_one('.ui-pdp-title')
+    if nome_elemento is not None:
+        nome = nome_elemento.text.strip()
+    else:
+        nome = "Nome do produto não encontrado"
+
+    # Para extrair o preço:(utilizei padrões CSS)
+    preco_elemento = soup.select_one('.ui-pdp-price__second-line')
+    if preco_elemento is not None:
+        preco_texto = preco_elemento.text.strip()
+        preco_numeros = re.search(r'(\d+),(\d+)', preco_texto) # Extrair dois dígitos antes e dois dígitos depois da vírgula
+        if preco_numeros is not None:
+            preco = float(preco_numeros.group().replace(',', '.'))
+        else:   
+            preco = "Preço do produto não encontrado"
+    else:
+        preco = "Preço do produto não encontrado"
+
+    ## Para extrair a descrição:(também utilizei padrões CSS)
+    descricao_elemento = soup.select_one('.ui-pdp-description')
+    if descricao_elemento is not None:
+        descricao = descricao_elemento.text.strip()
+    else:
+        descricao = "Descrição do produto não encontrada"
+
+    # Retornar as informações em um dicionário
+    return {'Nome': nome, 'Preço': preco, 'Descrição': descricao}
+
+
+
+# DEF para inserir dados na planilha do Google Sheets
+def inserir_dados_na_planilha(dados):
+    # Autenticar na API do Google Drive
+    scope = ['https://spreadsheets.google.com/feeds',
+             'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('C:/Users/mathe/Downloads/testeEmprego.json', scope)
+
+    client = gspread.authorize(creds)
+
+    # Para abrir a planilha do Google Sheets
+    planilha = client.open_by_key('1BoyTvu4oeMXiiBQw2l9rm2Ulh04yz1fMl11ao3n02rk')
+    planilha_selecionada = planilha.sheet1
+   
+
+    # Para inserir os dados na planilha
+    planilha_selecionada.append_row([dados['Nome'], dados['Preço'], dados['Descrição']])
+
+    #CASO QUEIRA ZERAR A PLANILHA é so tirar a hashtag do texto abaixo:
+    planilha_selecionada.clear()
+    
+# URL do produto para fazer o web scraping
+url_produto = 'https://www.mercadolivre.com.br/tnis-para-masculino-nike-court-vision-low-next-nature-cor-branco-adulto-38-br/p/MLB18679677?pdp_filters=official_store:3921#searchVariation=MLB18679677&position=1&search_layout=grid&type=product&tracking_id=ac6aaa81-f711-44f5-b2ad-1796e2771a80&deal_print_id=ef8e7cd0-040e-11ee-8893-e16478000bd0&c_id=carouseldynamic-home&c_element_order=undefined&c_campaign=ROUPAS-FEMININAS&c_uid=ef8e7cd0-040e-11ee-8893-e16478000bd0'
+
+# Executar o web scraping e obter os dados do produto
+dados_produto = scrape_mercado_livre(url_produto)
+
+# Para inserir os dados na planilha:
+inserir_dados_na_planilha(dados_produto)
+
+# Printar os resultados no terminal
+print(dados_produto)
+
