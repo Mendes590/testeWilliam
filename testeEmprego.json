@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "emprego-388923",
+  "private_key_id": "e0dc1001af88683ab4ce2480c43e5c2331c9c8cb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJG2gA9aOkaeCW\nXsLMKV7ggaPq9kANN1CF/4juEwI1ucPA/tPfpQWYwNUnZlnBemXQXJFfs1WmCKDP\nlXkgu42wzA3XBuzqWbEdXJiA+zj48a99r4KH3IqpYAA974lRCY7ZTkENtqTbrS0O\n/5p1QdOK9yYUlUWATx6gp9HPBbByZeOEu7i+XhaOJ4c5MmUWbQMvXp/626VFhaln\n8roNelfAKUGry8VzjryEUjZAQIHk8KlLiNpeNRaNZXpvMKdrFnVUD3ArOkA/UNpD\nIRspRMoZKkytrViYlrx153KmW7HbIfrElb4j4yvH1ltTSu1JhwQJ2M38V2AaYRiE\nOCY59ucJAgMBAAECggEANGEoghN4l1KiVdgBmaZu2T+633Ba93ZASV5onkWiLjcf\nps1YhugW4JXdDsGIQC3uhcoObSQq+y9FHzwZy+49td43/pkFrPZGfNTIvdNxH9nn\nMO+9KkDFdt8TwQ36MHqyU6QfqoA3SSY+Vak6ZC8Md6Xuq67DZut0mTiMm4SqU+kC\nfcl9UQkTCGx2g6H8ueWJVh/Q4nIDCnxkPyzA1cnTXcSzMX9FPxo9Az/v2pPPhyQC\nuvl73BnEi0sxnbIFfs0XUy/+v7ZJj1OtsljqMokHAlRvgwXX5awToGVjVQb3VcdP\nork0h2oOCq05rcaxwBin9eirywplzCorqc+itga/lwKBgQDtBaHh3AsgRC/4zYOS\ntlRh2LO1oQOsrvtSFgRCCg5vUf2MtgAYKprgrka+ETuOeEeIFIMr/eUf2svGoC8M\n18AQwGVaMHOINfD4YY1HslbsEpDjEXYuhSgqrQcCR3GqRZCtiYJTIhEnzHU8T/Pu\n6zR8hZWAM4TqoiFAEkj9Dvt8CwKBgQDZNZsdyrwQR5cIhXxwlA8DaY/tYk+wWkJI\nNYTL04ogJvYoqbimHjmSq8KUe9d0UFRs/XVilcTh0A1MCuG7MqHZ2H2cmBl+Wr9Z\nQOKMG275AiksbbIEhZu8zEX/qIKObkHFa5hd/MuB3hmpAU8/PF6STm9TdTVHpsHU\n3GWl953BuwKBgQChchSyI4/wioGil1nntQoFG/ZM4T//f7DwWM7NrMvoR5DNJ6so\nytxz7kGBdXt7r7IJnu86J9bJu97RjIp/1PWec26V4CrRvOxGQyxYicFrS7ok8N/v\nEAQsDW+YvdFOidPiYKfEuI+27C1ux4cAVnWJ2/PZPz5qE8VSPyI4PNxPwQKBgFEI\nB4sws8IbAwRB0C+rfIJYYkI71+DBe1K27IihrTjbcB+xWVpXkkDeZOPB45nX0fcr\nAxy5JM7dL+i7coTEmc7MTegacgBKWHIym5GLNnYc0UFq1uuK8JOZXU/IDJSYG19M\nCXaetUkIk2gSPf8oRVuteSiYZD0Lv+nqIt2sp6S7AoGBAObtsioFI/XScK6bEI6n\nShXEMlf360xMEfRAlSfeGUo8hgMfj9AE0YAh0+v/zlKUj8UZIUjpFCSIYfIrxEio\njSEp30UUmx6i2bLQT5sdtUxC/oiXcv/6SNLpaGiQDV+4fF32X5/h4NJfQOTzWEje\n0sEtsSyIRJf7JwdRK0Ck6Fj6\n-----END PRIVATE KEY-----\n",
+  "client_email": "emprego@emprego-388923.iam.gserviceaccount.com",
+  "client_id": "114204202694946341964",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/emprego%40emprego-388923.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
